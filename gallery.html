@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stravo Electric - Gallery</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Blue Lightning Background Animation */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -50%;
+      width: 200%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        75deg,
+        rgba(0,229,255,0.08) 0px,
+        rgba(0,229,255,0.08) 2px,
+        transparent 2px,
+        transparent 80px
+      );
+      animation: moveLights 10s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes moveLights {
+      from { transform: translateX(0); }
+      to { transform: translateX(-80px); }
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(0, 0, 0, 0.9);
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    header h1 {
+      font-size: 26px;
+      color: #00e5ff;
+      text-shadow: 0 0 15px #00e5ff, 0 0 30px #00e5ff;
+    }
+
+    nav a {
+      margin-left: 25px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffeb3b;
+      text-shadow: 0 0 10px #ffeb3b;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+      background: radial-gradient(circle at top, rgba(0,229,255,0.15), transparent 70%);
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      color: #ffeb3b;
+      text-shadow: 0 0 25px #ffeb3b, 0 0 50px #ffeb3b;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #bbb;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Gallery */
+    .gallery-section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      box-shadow: 0 0 15px rgba(0,229,255,0.2);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00e5ff, 0 0 40px #ffeb3b;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0,0,0,0.95);
+      padding: 50px 20px 20px;
+      border-top: 1px solid rgba(0, 255, 255, 0.2);
+      color: #ccc;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-section h4 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #00e5ff;
+      text-shadow: 0 0 8px #00e5ff;
+    }
+
+    .footer-section p,
+    .footer-section li {
+      font-size: 15px;
+      margin-bottom: 8px;
+      color: #aaa;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section li::before {
+      content: "⚡ ";
+      color: #ffeb3b;
+      text-shadow: 0 0 6px #ffeb3b;
+    }
+
+    .footer-section a {
+      color: #ffeb3b;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: #00e5ff;
+      text-shadow: 0 0 8px #00e5ff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(0,229,255,0.2);
+      font-size: 14px;
+      color: #777;
+    }
+    /* Hanging Bulb Container */
+.hanging-bulb {
+  position: absolute;
+  top: 0;
+  left: 80px; /* distance from left */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  animation: swing 3s ease-in-out infinite alternate;
+  z-index: 20;
+}
+
+/* Wire */
+.hanging-bulb .wire {
+  width: 2px;
+  height: 250px; /* wire length */
+  background: #888;
+  box-shadow: 0 0 5px #00e5ff;
+}
+
+/* Bulb */
+.hanging-bulb .bulb {
+  font-size: 50px;
+  margin-top: -5px;
+  color: #ffeb3b;
+  transform: rotate(180deg); /* Flip bulb upside-down */
+  text-shadow: 0 0 20px #ffeb3b, 0 0 40px #ffeb3b, 0 0 60px #ffeb3b;
+}
+
+/* Swing Animation */
+@keyframes swing {
+  0%   { transform: rotate(-5deg); }
+  50%  { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
+}
+
+    
+
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+    <a href="home.html">
+      <img src="photos/logo.png" alt="Stravo Electric Logo">
+    </a>
+  </div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="awards.html">Awards & Licenses</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="aboutus.html">About</a>
+      <a href="contactus.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Our Work Gallery</h2>
+    <p>Take a look at some of the projects completed by Stravo Electric. From homes to businesses, we bring energy to life.</p>
+  </section>
+  <!-- Hanging Light Bulb with Wire -->
+<div class="hanging-bulb">
+  <div class="wire"></div>
+  <div class="bulb">💡</div>
+</div>
+
+ 
+
+
+  <!-- Gallery -->
+  <section class="gallery-section">
+    <div class="gallery-grid">
+      <img src="photos/work_pic1.jpeg" alt="Project 1">
+      <img src="photos/work_pic2.jpeg" alt="Project 2">
+      <img src="photos/work_pic3.jpeg" alt="Project 3">
+      <img src="photos/work_pic4.jpeg" alt="Project 4">
+      <img src="photos/work_pic5.jpeg" alt="Project 5">
+      <img src="photos/work_pic6.jpeg" alt="Project 6">
+      <img src="photos/work_pic7.jpeg" alt="Project 7">
+      <img src="photos/work_pic8.jpeg" alt="Project 8">
+      <img src="photos/work_pic9.jpeg" alt="Project 9">
+      <img src="photos/pro-vZVxMZro.jpeg" alt="Project 10">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>About Us</h4>
+        <p><strong>OVER 10 YEARS COMBINED EXPERIENCE</strong></p>
+        <p>Stravo Electric is your local partner for all your electrical needs. Our licensed and insured professionals bring a wealth of experience and a commitment to quality workmanship.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Our Services</h4>
+        <ul>
+          <li>Remodelling</li>
+          <li>Fan Installation</li>
+          <li>Panel Change Over</li>
+          <li>Service Upgrades</li>
+          <li>EV Charger Installations</li>
+          <li>Outdoor Lighting Installation</li>
+          <li>Pool & Hot Tub Wiring</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Our Location</h4>
+        <p>Proudly Serving the Kamloops B.C<br>
+        and Surrounding Area (100km Radius)</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p>📞 <a href="tel:+16045551234">+1 (250) 852-8306</a></p>
+        <p>✉️ <a href="mailto:stravoelectric@outlook.com">stravoelectric@outlook.com</a></p>
+        <p>🏠 Kamloops, BC</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Stravo Electric. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

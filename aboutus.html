@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Stravo Electric</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(0, 0, 0, 0.9);
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    header h1 {
+      font-size: 26px;
+      color: #00e5ff;
+      text-shadow: 0 0 15px #00e5ff, 0 0 30px #00e5ff;
+    }
+
+    nav a {
+      margin-left: 25px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffeb3b;
+      text-shadow: 0 0 10px #ffeb3b, 0 0 20px #ffeb3b;
+    }
+
+    /* Page Header */
+    .page-header {
+      text-align: center;
+      padding: 60px 20px;
+      background: radial-gradient(circle at top, rgba(0,229,255,0.15), transparent 70%);
+    }
+
+    .page-header h2 {
+      font-size: 42px;
+      color: #ffeb3b;
+      text-shadow: 0 0 20px #ffeb3b, 0 0 40px #ffeb3b;
+      animation: pulseGlow 2s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { text-shadow: 0 0 15px #ffeb3b, 0 0 30px #ffeb3b; }
+      to { text-shadow: 0 0 35px #ffeb3b, 0 0 70px #ffeb3b; }
+    }
+
+    /* About Section */
+    .about-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 20px;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #00e5ff;
+      text-shadow: 0 0 8px #00e5ff;
+    }
+
+    .about-text p {
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    .about-image {
+      text-align: center;
+    }
+
+    .about-image img {
+      max-width: 100%;
+      border-radius: 15px;
+      border: 2px solid #00e5ff;
+      box-shadow: 0 0 20px #00e5ff, 0 0 40px #00e5ff;
+    }
+
+    /* Why Choose Us Section */
+    .why-choose {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .why-choose h3 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #00e5ff;
+      text-shadow: 0 0 10px #00e5ff;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      padding: 25px;
+      border-radius: 15px;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .card h4 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #ffeb3b;
+      text-shadow: 0 0 8px #ffeb3b;
+    }
+
+    .card p {
+      color: #bbb;
+      font-size: 16px;
+    }
+
+    .card::before {
+      content: "⚡";
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 22px;
+      color: #00e5ff;
+      text-shadow: 0 0 10px #00e5ff;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px #00e5ff, 0 0 40px #00e5ff;
+    }
+    /* Footer */
+    footer {
+      background: rgba(0,0,0,0.95);
+      padding: 50px 20px 20px;
+      border-top: 1px solid rgba(0, 255, 255, 0.2);
+      color: #ccc;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-section h4 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #00e5ff;
+      text-shadow: 0 0 8px #00e5ff;
+    }
+
+    .footer-section p,
+    .footer-section li {
+      font-size: 15px;
+      margin-bottom: 8px;
+      color: #aaa;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section li::before {
+      content: "⚡ ";
+      color: #ffeb3b;
+      text-shadow: 0 0 6px #ffeb3b;
+    }
+
+    .footer-section a {
+      color: #ffeb3b;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: #00e5ff;
+      text-shadow: 0 0 8px #00e5ff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(0,229,255,0.2);
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+    <a href="home.html">
+      <img src="photos/logo.png" alt="Stravo Electric Logo">
+    </a>
+  </div>
+    <nav>
+     <a href="home.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="awards.html">Awards & Licenses</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="aboutus.html">About</a>
+      <a href="contactus.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Page Title -->
+  <div class="page-header">
+    <h2>About Us</h2>
+  </div>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="about-text">
+      <h3>Who We Are</h3>
+      <p>With 10 years of experience, Stravo Electric opened the doors in April 2023, offering reliable and professional electrical services to both residential and commercial clients. With a decade of hands-on experience as an electrician, I am committed to delivering top-notch electrical solutions tailored to meet the specific needs of our clients. Whether it's electrical repairs, inspections, or advanced building automation systems, I take pride in providing high-quality, safe, and efficient services. 
+         Being deeply rooted in Kamloops, I am not only dedicated to my profession but also to the community that has shaped me. My kids were born and raised here, and we’ve been actively involved in the local softball scene, which holds a special place in our hearts. Beyond work, supporting and participating in Kamloops' thriving sports community has been a rewarding part of my life.</p>
+      <p>At Stravo Electric, we believe in building lasting relationships with our clients by consistently delivering exceptional service and innovative solutions.
+        Our dedication to excellence and our passion for the community were recognized with a nomination for the Kamloops Business Award, a testament to the trust and appreciation we’ve earned over the years.
+        Whether you're in need of small electrical repairs or complex system installations, Stravo Electric is here to serve you with the expertise and care that comes from years of experience and a deep connection to Kamloops.</p>
+    </div>
+    <div class="about-image">
+      <img src="team/owner3.jpeg" alt="Stravo Electric Team">
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="why-choose">
+    <h3>Why Choose Stravo Electric?</h3>
+    <div class="card-container">
+      <div class="card">
+        <h4>Expertise</h4>
+        <p>Certified professionals with years of proven electrical experience.</p>
+      </div>
+      <div class="card">
+        <h4>Safety First</h4>
+        <p>Adhering to the highest safety standards in every project we undertake.</p>
+      </div>
+      <div class="card">
+        <h4>Customer Trust</h4>
+        <p>Building long-term relationships through transparent and reliable service.</p>
+      </div>
+      <div class="card">
+        <h4>Innovation</h4>
+        <p>Future-ready smart home and energy-efficient solutions tailored to your needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>About Us</h4>
+        <p><strong>OVER 10 YEARS COMBINED EXPERIENCE</strong></p>
+        <p>Stravo Electric is your local partner for all your electrical needs. Our licensed and insured professionals bring a wealth of experience and a commitment to quality workmanship.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Our Services</h4>
+        <ul>
+          <li>Remodelling</li>
+          <li>Fan Installation</li>
+          <li>Panel Change Over</li>
+          <li>Service Upgrades</li>
+          <li>EV Charger Installations</li>
+          <li>Outdoor Lighting Installation</li>
+          <li>Pool & Hot Tub Wiring</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Our Location</h4>
+        <p>Proudly Serving the Kamloops B.C<br>
+        and Surrounding Area (100km Radius)</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p>📞 <a href="tel:+16045551234">+1 (250) 852-8306</a></p>
+        <p>✉️ <a href="mailto:stravoelectric@outlook.com">stravoelectric@outlook.com</a></p>
+        <p>🏠 Kamloops, BC</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Stravo Electric. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stravo Electric - Contact Us</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Blue Lightning Background Animation */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -50%;
+      width: 200%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        75deg,
+        rgba(0,229,255,0.08) 0px,
+        rgba(0,229,255,0.08) 2px,
+        transparent 2px,
+        transparent 80px
+      );
+      animation: moveLights 10s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes moveLights {
+      from { transform: translateX(0); }
+      to { transform: translateX(-80px); }
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(0, 0, 0, 0.9);
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    .logo img {
+      height: 50px;
+      width: auto;
+      filter: drop-shadow(0 0 6px #00e5ff);
+      transition: 0.3s;
+    }
+
+    .logo img:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 12px #ffeb3b);
+    }
+
+    nav a {
+      margin-left: 25px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffeb3b;
+      text-shadow: 0 0 10px #ffeb3b;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+      background: radial-gradient(circle at top, rgba(0,229,255,0.15), transparent 70%);
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      color: #ffeb3b;
+      text-shadow: 0 0 25px #ffeb3b, 0 0 50px #ffeb3b;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #bbb;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Contact Section */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    .map {
+      height: 400px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0,229,255,0.3);
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,229,255,0.2);
+    }
+
+    .contact-form h3 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #00e5ff;
+      text-shadow: 0 0 10px #00e5ff;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-size: 16px;
+      outline: none;
+      box-shadow: inset 0 0 8px rgba(0,229,255,0.2);
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #aaa;
+    }
+
+    .contact-form button {
+      background: #00e5ff;
+      color: #000;
+      border: none;
+      padding: 14px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00e5ff, 0 0 30px #00e5ff;
+      transition: 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #ffeb3b;
+      box-shadow: 0 0 20px #ffeb3b, 0 0 40px #ffeb3b;
+    }
+    .contact-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers the button */
+}
+
+.contact-form button {
+  margin-top: 10px;
+  align-self: center; /* ensures button stays centered */
+}
+
+
+    /* Responsive Layout for Small Screens */
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      .contact-form {
+        order: 1; /* show form first */
+      }
+      .map {
+        order: 2; /* show map below */
+        height: 300px;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0,0,0,0.95);
+      padding: 50px 20px 20px;
+      border-top: 1px solid rgba(0, 255, 255, 0.2);
+      color: #ccc;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-section h4 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #00e5ff;
+      text-shadow: 0 0 8px #00e5ff;
+    }
+
+    .footer-section p,
+    .footer-section li {
+      font-size: 15px;
+      margin-bottom: 8px;
+      color: #aaa;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section li::before {
+      content: "⚡ ";
+      color: #ffeb3b;
+      text-shadow: 0 0 6px #ffeb3b;
+    }
+
+    .footer-section a {
+      color: #ffeb3b;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: #00e5ff;
+      text-shadow: 0 0 8px #00e5ff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(0,229,255,0.2);
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <a href="home.html">
+        <img src="images/logo.jpg" alt="Stravo Electric Logo">
+      </a>
+    </div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="awards.html">Awards & Licenses</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="aboutus.html">About</a>
+      <a href="contactus.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Contact Us</h2>
+    <p>Have questions or need assistance? Get in touch with Stravo Electric today. We're here to power your world safely and efficiently.</p>
+  </section>
+
+  <!-- Contact Section -->
+<section class="contact-container">
+  <!-- Map (left) -->
+  <div class="map">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1084185.763802398!2d-123.2031419!3d50.8459432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537e2d2ddf9a6bf7%3A0x7583482bfd393eca!2sStravo%20Electric!5e0!3m2!1sen!2sca!4v1694987931284!5m2!1sen!2sca" 
+      width="100%" 
+      height="100%" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    <p style="margin-top:10px; text-align:center;">
+      <a href="https://www.google.com/maps/place/Stravo+Electric/@50.8459432,-123.2031419,7z/data=!3m1!4b1!4m6!3m5!1s0x537e2d2ddf9a6bf7:0x7583482bfd393eca!8m2!3d50.8722244!4d-120.5646871!16s%2Fg%2F11sshjx4qc?entry=ttu" 
+         target="_blank" 
+         style="color:#00e5ff; text-decoration:none; font-weight:bold;">
+        📍 View on Google Maps
+      </a>
+    </p>
+  </div>
+
+  <!-- Form (right) -->
+  <div class="contact-form">
+    <h3>Send Us a Message</h3>
+    <form action="send_mail.php" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="subject" placeholder="Subject" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>About Us</h4>
+        <p><strong>OVER 10 YEARS COMBINED EXPERIENCE</strong></p>
+        <p>Stravo Electric is your local partner for all your electrical needs. Our licensed and insured professionals bring a wealth of experience and a commitment to quality workmanship.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Our Services</h4>
+        <ul>
+          <li>Remodelling</li>
+          <li>Fan Installation</li>
+          <li>Panel Change Over</li>
+          <li>Service Upgrades</li>
+          <li>EV Charger Installations</li>
+          <li>Outdoor Lighting Installation</li>
+          <li>Pool & Hot Tub Wiring</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Our Location</h4>
+        <p>Proudly Serving the Kamloops B.C<br>
+        and Surrounding Area (100km Radius)</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p>📞 <a href="tel:+12508528306">+1 (250) 852-8306</a></p>
+        <p>✉️ <a href="mailto:stravoelectric@outlook.com">stravoelectric@outlook.com</a></p>
+        <p>🏠 Kamloops, BC</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Stravo Electric. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

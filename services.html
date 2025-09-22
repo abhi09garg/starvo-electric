@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stravo Electric - Services</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Blue Lightning Background Animation */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -50%;
+      width: 200%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        75deg,
+        rgba(0,229,255,0.08) 0px,
+        rgba(0,229,255,0.08) 2px,
+        transparent 2px,
+        transparent 80px
+      );
+      animation: moveLights 10s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes moveLights {
+      from { transform: translateX(0); }
+      to { transform: translateX(-80px); }
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(0, 0, 0, 0.9);
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    header h1 {
+      font-size: 26px;
+      color: #00e5ff;
+      text-shadow: 0 0 15px #00e5ff, 0 0 30px #00e5ff;
+    }
+
+    nav a {
+      margin-left: 25px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffeb3b;
+      text-shadow: 0 0 10px #ffeb3b;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+      background: radial-gradient(circle at top, rgba(0,229,255,0.15), transparent 70%);
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      color: #ffeb3b;
+      text-shadow: 0 0 25px #ffeb3b, 0 0 50px #ffeb3b;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #bbb;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Services Grid */
+    .services-section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      padding: 25px;
+      border-radius: 15px;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(0,229,255,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px #00e5ff, 0 0 40px #ffeb3b;
+    }
+
+    .service-card h3 {
+      font-size: 22px;
+      color: #00e5ff;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #00e5ff;
+    }
+
+    .service-card p {
+      font-size: 16px;
+      color: #ddd;
+      line-height: 1.5;
+    }
+
+    .service-card::before {
+      content: "⚡";
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 20px;
+      color: #ffeb3b;
+      text-shadow: 0 0 10px #ffeb3b;
+      animation: flicker 2s infinite alternate;
+    }
+
+    @keyframes flicker {
+      from { opacity: 0.8; text-shadow: 0 0 10px #ffeb3b; }
+      to { opacity: 1; text-shadow: 0 0 20px #ffeb3b; }
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0,0,0,0.95);
+      padding: 50px 20px 20px;
+      border-top: 1px solid rgba(0, 255, 255, 0.2);
+      color: #ccc;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-section h4 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #00e5ff;
+      text-shadow: 0 0 8px #00e5ff;
+    }
+
+    .footer-section p,
+    .footer-section li {
+      font-size: 15px;
+      margin-bottom: 8px;
+      color: #aaa;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section li::before {
+      content: "⚡ ";
+      color: #ffeb3b;
+      text-shadow: 0 0 6px #ffeb3b;
+    }
+
+    .footer-section a {
+      color: #ffeb3b;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: #00e5ff;
+      text-shadow: 0 0 8px #00e5ff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(0,229,255,0.2);
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+    <a href="home.html">
+      <img src="photos/logo.png" alt="Stravo Electric Logo">
+    </a>
+  </div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="awards.html">Awards & Licenses</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="aboutus.html">About</a>
+      <a href="contactus.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Our Services</h2>
+    <p>At Stravo Electric, we provide professional electrical services that keep homes and businesses safe, efficient, and future-ready.</p>
+  </section>
+
+  <!-- Services -->
+  <section class="services-section">
+    <div class="services-grid">
+
+      <div class="service-card">
+        <h3>SERVICE / PANEL UPGRADES</h3>
+        <p>Stravo Electric offers expert service and panel upgrades to meet modern energy demands, ensuring safe and reliable power for your home or business.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>EV CHARGING</h3>
+        <p>We provide professional EV charging station installation, ensuring safe, efficient charging solutions for your home or business.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>RESIDENTIAL ELECTRICAL INSTALLATIONS</h3>
+        <p>Our dedicated team specializes in residential electrical installations, ensuring that your home's electrical systems are installed safely and efficiently.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>OUTDOOR LIGHTING INSTALLATION</h3>
+        <p>Make the most of your outdoor spaces with our outdoor lighting solutions. We'll help you create a warm and inviting atmosphere while improving security.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>FAN INSTALLATION</h3>
+        <p>Whether you need a ceiling fan or exhaust fan installed, our team of experts can provide efficient and professional fan installation services.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>POOL & HOT TUB WIRING</h3>
+        <p>Stravo Electric provides expert wiring services for pools and hot tubs, ensuring safe and efficient electrical connections to keep your systems running smoothly.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>REMODELING</h3>
+        <p>Our electricians provide expert electrical support for remodeling projects, handling rewiring, upgrades, and new installations to meet your modern needs.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>About Us</h4>
+        <p><strong>OVER 10 YEARS COMBINED EXPERIENCE</strong></p>
+        <p>Stravo Electric is your local partner for all your electrical needs. Our licensed and insured professionals bring a wealth of experience and a commitment to quality workmanship.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Our Services</h4>
+        <ul>
+          <li>Remodelling</li>
+          <li>Fan Installation</li>
+          <li>Panel Change Over</li>
+          <li>Service Upgrades</li>
+          <li>EV Charger Installations</li>
+          <li>Outdoor Lighting Installation</li>
+          <li>Pool & Hot Tub Wiring</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Our Location</h4>
+        <p>Proudly Serving the Kamloops B.C<br>
+        and Surrounding Area (100km Radius)</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p>📞 <a href="tel:+12508528306">+1 (250) 852-8306</a></p>
+        <p>✉️ <a href="mailto:stravoelectric@outlook.com">stravoelectric@outlook.com</a></p>
+        <p>🏠 Kamloops, BC</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Stravo Electric. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
