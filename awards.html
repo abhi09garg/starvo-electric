@@ -238,6 +238,42 @@
   font-size: 16px;
   color: #ccc;
 }
+ /* Hanging Bulb Container */
+.hanging-bulb {
+  position: absolute;
+  top: 0;
+  left: 80px; /* distance from left */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  animation: swing 3s ease-in-out infinite alternate;
+  z-index: 20;
+}
+
+/* Wire */
+.hanging-bulb .wire {
+  width: 2px;
+  height: 250px; /* wire length */
+  background: #888;
+  box-shadow: 0 0 5px #00e5ff;
+}
+
+/* Bulb */
+.hanging-bulb .bulb {
+  font-size: 50px;
+  margin-top: -5px;
+  color: #ffeb3b;
+  transform: rotate(180deg); /* Flip bulb upside-down */
+  text-shadow: 0 0 20px #ffeb3b, 0 0 40px #ffeb3b, 0 0 60px #ffeb3b;
+}
+
+/* Swing Animation */
+@keyframes swing {
+  0%   { transform: rotate(-5deg); }
+  50%  { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
+}
 
   </style>
 </head>
@@ -245,12 +281,12 @@
   <!-- Header -->
   <header>
     <div class="logo">
-    <a href="home.html">
-      <img src="photos/logo.png" alt="Stravo Electric Logo">
+    <a href="index.html">
+      <img src="images/photos/logo.png" alt="Stravo Electric Logo">
     </a>
   </div>
     <nav>
-      <a href="home.html">Home</a>
+      <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="awards.html">Awards & Licenses</a>
       <a href="gallery.html">Gallery</a>
@@ -264,20 +300,20 @@
     <h2>Awards & Licenses</h2>
     <p>We are proud to be recognized by trusted associations for our commitment to quality and safety.</p>
   </section>
+   <!-- Hanging Light Bulb with Wire -->
+<div class="hanging-bulb">
+  <div class="wire"></div>
+  <div class="bulb">💡</div>
+</div>
 
    <!-- License Gallery -->
   <section class="licenses">
     <h3>Our Certifications & Memberships</h3>
     <div class="license-gallery">
-      <img src="ccib/ccib_1.jpeg" alt="Electrical Safety License">
-      <img src="ccib/ccib_2.jpeg" alt="WorkSafe BC Certification">
-      <img src="ccib/ccib_5.jpeg" alt="Canadian Electrical Association Membership">
-      <img src="ccib/ccib_6.jpeg" alt="Energy-Efficient Installer Certification">
-      <img src="ccib/ccib_3.jpeg" alt="Energy-Efficient Installer Certification">
-      <img src="ccib/ccib_4.jpeg" alt="Energy-Efficient Installer Certification">
+       <a href="https://www.ccib.ca/main/member/stravo-electric-corporation/" target="_blank">
+      <img src="images/ccib/ccib_3.jpeg" alt="Energy-Efficient Installer Certification"></a>
     </div>
   </section>
-
 
   <!-- Badges -->
   <section class="badges">
@@ -286,9 +322,7 @@
       <a href="https://www.bbb.org/ca/bc/kamloops/profile/electrical-contractors/stravo-electric-0037-2433830/#sealclick" target="_blank" rel="nofollow">
         <img src="https://seal-mbc.bbb.org/seals/blue-seal-200-65-bbb-2433830.png" alt="Stravo Electric BBB Business Review" />
       </a>
-      <iframe frameborder="0" style="height:65px; width:200px;" src="https://seal-mbc.bbb.org/frame/blue-seal-200-65-bbb-2433830.png?chk=C90374F508"></iframe>
-      <iframe frameborder="0" style="height:52px; width:250px;" src="https://seal-mbc.bbb.org/frame/blue-seal-250-52-bbb-2433830.png?chk=C90374F508"></iframe>
-      <iframe frameborder="0" style="height:61px; width:293px;" src="https://seal-mbc.bbb.org/frame/blue-seal-293-61-whitetxt-bbb-2433830.png?chk=C90374F508"></iframe>
+  
     </div>
   </section>
 
@@ -297,13 +331,8 @@
   <h2>Our Awards</h2>
   <div class="awards-container">
     <div class="award-card">
-      <img src="awards/kamloops_chanber_nominee_award.jpeg" alt="Nominee for the Kamloops Chamber Business Award">
+      <img src="images/awards/business_exellence24.jpeg" alt="Business Excellence Award Kamloops 2024">
       <h4>Nominee</h4>
-      <p>Kamloops Chamber Business Award</p>
-    </div>
-    <div class="award-card">
-      <img src="awards/business_exellence24.jpeg" alt="Business Excellence Award Kamloops 2024">
-      <h4>Winner</h4>
       <p>Business Excellence Award Kamloops ‘24</p>
     </div>
   </div>
@@ -328,7 +357,7 @@
       <h4>Our Services</h4>
       <ul>
         <li>Remodelling</li>
-        <li>Fan Installation</li>
+        <li>General Home build</li>
         <li>Panel Change Over</li>
         <li>Service Upgrades</li>
         <li>EV Charger Installations</li>

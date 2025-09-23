@@ -218,18 +218,54 @@
       font-size: 14px;
       color: #777;
     }
+     /* Hanging Bulb Container */
+.hanging-bulb {
+  position: absolute;
+  top: 0;
+  left: 80px; /* distance from left */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+  animation: swing 3s ease-in-out infinite alternate;
+  z-index: 20;
+}
+
+/* Wire */
+.hanging-bulb .wire {
+  width: 2px;
+  height: 250px; /* wire length */
+  background: #888;
+  box-shadow: 0 0 5px #00e5ff;
+}
+
+/* Bulb */
+.hanging-bulb .bulb {
+  font-size: 50px;
+  margin-top: -5px;
+  color: #ffeb3b;
+  transform: rotate(180deg); /* Flip bulb upside-down */
+  text-shadow: 0 0 20px #ffeb3b, 0 0 40px #ffeb3b, 0 0 60px #ffeb3b;
+}
+
+/* Swing Animation */
+@keyframes swing {
+  0%   { transform: rotate(-5deg); }
+  50%  { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
+}
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
     <div class="logo">
-    <a href="home.html">
-      <img src="photos/logo.png" alt="Stravo Electric Logo">
+    <a href="index.html">
+      <img src="images/photos/logo.png" alt="Stravo Electric Logo">
     </a>
   </div>
     <nav>
-     <a href="home.html">Home</a>
+     <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="awards.html">Awards & Licenses</a>
       <a href="gallery.html">Gallery</a>
@@ -243,6 +279,12 @@
     <h2>About Us</h2>
   </div>
 
+   <!-- Hanging Light Bulb with Wire -->
+<div class="hanging-bulb">
+  <div class="wire"></div>
+  <div class="bulb">💡</div>
+</div>
+
   <!-- About Section -->
   <section class="about-section">
     <div class="about-text">
@@ -254,7 +296,7 @@
         Whether you're in need of small electrical repairs or complex system installations, Stravo Electric is here to serve you with the expertise and care that comes from years of experience and a deep connection to Kamloops.</p>
     </div>
     <div class="about-image">
-      <img src="team/owner3.jpeg" alt="Stravo Electric Team">
+      <img src="images/team/owner3.jpeg" alt="Stravo Electric Team">
     </div>
   </section>
 
@@ -295,7 +337,7 @@
         <h4>Our Services</h4>
         <ul>
           <li>Remodelling</li>
-          <li>Fan Installation</li>
+          <li>General home build</li>
           <li>Panel Change Over</li>
           <li>Service Upgrades</li>
           <li>EV Charger Installations</li>
