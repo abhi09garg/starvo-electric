@@ -93,6 +93,52 @@
       color: #ffeb3b;
       text-shadow: 0 0 10px #ffeb3b, 0 0 20px #ffeb3b;
     }
+    /* Default Navigation (Desktop) */
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+/* Hamburger Button (hidden on desktop) */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #fff;
+  text-shadow: 0 0 8px #00e5ff;
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 70px; /* just below header */
+    right: 20px;
+    width: 200px;
+    border: 1px solid rgba(0,229,255,0.3);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 15px rgba(0,229,255,0.5);
+  }
+
+  nav a {
+    display: block;
+    margin: 10px 0;
+    color: #fff;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
 
     /* Hero Section */
     .hero {
@@ -406,20 +452,28 @@
 
   <!-- Header -->
   <header>
-    <div class="logo">
+  <div class="logo">
     <a href="index.html">
       <img src="images/photos/logo.png" alt="Stravo Electric Logo">
     </a>
   </div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="awards.html">Awards & Licenses</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="aboutus.html">About</a>
-      <a href="contactus.html">Contact</a>
-    </nav>
-  </header>
+
+  <!-- Hamburger Icon -->
+  <div class="menu-toggle" id="menu-toggle">
+    ☰
+  </div>
+
+  <!-- Navigation -->
+  <nav id="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="awards.html">Awards & Licenses</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
 
   <!-- Hero -->
   <section class="hero">
@@ -503,7 +557,7 @@
 
   <!-- Testimonials (Elfsight) -->
   <section class="testimonials">
-    <h3>What Our Clients Say</h3>
+   <!-- <h3>What Our Clients Say</h3> -->
     <!-- Elfsight Google Reviews | Untitled Google Reviews --> 
      <script src="https://elfsightcdn.com/platform.js" async></script> <div class="elfsight-app-959a8f79-54da-4003-8d96-691a6d1e211f" data-elfsight-app-lazy></div>
   </section>
@@ -558,5 +612,27 @@
   <footer>
     <p>&copy; 2025 Stravo Electric. All rights reserved.</p>
   </footer>
+  <script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  // Toggle menu when clicking the burger
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation(); // prevent click from reaching document
+    navMenu.classList.toggle('show');
+  });
+
+  // Prevent clicks inside the nav from closing it
+  navMenu.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+
+  // Close menu if clicking anywhere else
+  document.addEventListener('click', () => {
+    navMenu.classList.remove('show');
+  });
+</script>
+
+
 </body>
 </html>
